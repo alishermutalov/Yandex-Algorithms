@@ -86,9 +86,12 @@ def cafe():
         if money>=100: 
             coupon.append(day)
     
-        
-    for day, money in expenses:
-        pass
+    cost_list = [money for day, money in expenses]  
+    for i in range(len(expenses)):
+        print( expenses[i][1])
+        if expenses[i][1] == max(cost_list) and len(coupon)>0 and expenses[i][0]>coupon[0]:
+            expenses[i][1] = 0
+            coupon.pop(0)
         
     print(expenses, coupon)
 
